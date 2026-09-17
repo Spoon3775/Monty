@@ -17,6 +17,16 @@ class MyBot(commands.Bot):
     async def setup_hook(self):
         print("Loading Bot")
 
+        # Explicitly load each cog extension
+        extensions = (
+            "ext.general",
+        )
+        for ext in extensions:
+            await self.load_extension(ext)
+
+        await self.tree.sync()
+        print("Synced Slash Commands Globally")
+
     async def on_ready(self):
         print(f"Logged in as {self.user.name}")
 
