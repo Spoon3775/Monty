@@ -1,4 +1,4 @@
-import discord.py
+import discord
 from discord.ext import commands
 import logging 
 import logging.handlers
@@ -7,10 +7,12 @@ from dotenv import load_dotenv
 import asyncio
 import os
 
-class MyBot(commands.bot):
+load_dotenv()
+
+class MyBot(commands.Bot):
     def __init__(self):
-        super().__init__(command_prefix = '$', intents = discord.intents.all())
-        self.help_command = HelpCmd()
+        super().__init__(command_prefix = '$', intents = discord.Intents.all())
+        # self.help_command = HelpCmd()  # HelpCmd not defined yet
     
     async def setup_hook(self):
         print("Loading Bot")
