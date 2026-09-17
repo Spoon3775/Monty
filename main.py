@@ -20,6 +20,7 @@ class MyBot(commands.Bot):
         # Explicitly load each cog extension
         extensions = (
             "ext.general",
+            "ext.misc",
         )
         for ext in extensions:
             await self.load_extension(ext)
